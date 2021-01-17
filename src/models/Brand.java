@@ -1,22 +1,17 @@
 package models;
 
 public class Brand {
-    private String brand;
-    private String id;
+    private String name;
 
-    public String getBrand() {
-        return brand;
+    public Brand(String name) {
+        this.name = name;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public String getName() {
+        return name;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
 }
