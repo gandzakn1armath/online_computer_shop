@@ -2,7 +2,10 @@ package models;
 
 public class Brand {
     private String brand;
-    private String id;
+
+    public Brand(String brand) {
+        this.brand = brand;
+    }
 
     public String getBrand() {
         return brand;
@@ -12,11 +15,5 @@ public class Brand {
         this.brand = brand;
     }
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 }
