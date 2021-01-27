@@ -1,11 +1,13 @@
 package models;
 
+import enums.RAMType;
+
 public class RAM {
     private int ramSize;
-    private String ramType;
+    private RAMType ramType;
     private double ramFrequency;
 
-    public RAM(int ramSize, String ramType, double ramFrequency) {
+    public RAM(int ramSize, RAMType ramType, double ramFrequency) {
         this.ramSize = ramSize;
         this.ramType = ramType;
         this.ramFrequency = ramFrequency;
@@ -20,11 +22,11 @@ public class RAM {
         this.ramSize = ramSize;
     }
 
-    public String getRamType() {
+    public RAMType getRamType() {
         return ramType;
     }
 
-    public void setRamType(String ramType) {
+    public void setRamType(RAMType ramType) {
         this.ramType = ramType;
     }
 

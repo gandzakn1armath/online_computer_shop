@@ -13,9 +13,6 @@ public class BrandData {
         brands.add(new Brand("Acer"));
         brands.add(new Brand("Dell"));
         brands.add(new Brand("Hp"));
-
-
-
         return brands;
 
 

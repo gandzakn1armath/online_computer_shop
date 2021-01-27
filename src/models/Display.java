@@ -1,21 +1,23 @@
 package models;
 
+import enums.DisplayType;
+
 public class Display {
-    private String type;
+    private DisplayType type;
     private double diagonal;
     private String resolution;
 
-    public Display(String type, double diagonal, String resolution) {
+    public Display(DisplayType type, double diagonal, String resolution) {
         this.type = type;
         this.diagonal = diagonal;
         this.resolution = resolution;
     }
 
-    public String getType() {
+    public DisplayType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(DisplayType type) {
         this.type = type;
     }
 
