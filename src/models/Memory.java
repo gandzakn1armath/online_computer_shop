@@ -37,4 +37,13 @@ public class Memory {
     public void setMemorySpace(double memorySpace) {
         this.memorySpace = memorySpace;
     }
+
+    @Override
+    public String toString() {
+        return "Memory{" +
+                "name='" + name + '\'' +
+                ", memoryType=" + memoryType +
+                ", memorySpace=" + memorySpace +
+                '}';
+    }
 }

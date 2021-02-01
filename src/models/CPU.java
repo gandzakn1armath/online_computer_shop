@@ -35,4 +35,13 @@ public class CPU {
     public void setCpuMaximumFrequency(double cpuMaximumFrequency) {
         this.cpuMaximumFrequency = cpuMaximumFrequency;
     }
+
+    @Override
+    public String toString() {
+        return "CPU{" +
+                "name='" + name + '\'' +
+                ", cpuCoreCount=" + cpuCoreCount +
+                ", cpuMaximumFrequency=" + cpuMaximumFrequency +
+                '}';
+    }
 }

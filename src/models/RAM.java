@@ -37,4 +37,13 @@ public class RAM {
     public void setRamFrequency(double ramFrequency) {
         this.ramFrequency = ramFrequency;
     }
+
+    @Override
+    public String toString() {
+        return "RAM{" +
+                "ramSize=" + ramSize +
+                ", ramType=" + ramType +
+                ", ramFrequency=" + ramFrequency +
+                '}';
+    }
 }

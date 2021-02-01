@@ -41,4 +41,16 @@ public class Computer {
     public void setVideoCard(GPU videoCard) {
         this.videoCard = videoCard;
     }
+
+    @Override
+    public String toString() {
+        return "Computer{" +
+                "brand=" + brand.getName() +
+                ", processor=" + processor.getName() +
+                ", ram=" + ram.getRamSize() +
+                ", memory=" + memory.getMemorySpace() +
+                ", display=" + display.toString() +
+                ", videoCard=" + videoCard.getName() +
+                '}';
+    }
 }

@@ -36,4 +36,13 @@ public class Display {
     public void setResolution(String resolution) {
         this.resolution = resolution;
     }
+
+    @Override
+    public String toString() {
+        return "Display{" +
+                "type=" + type +
+                ", diagonal=" + diagonal +
+                ", resolution='" + resolution + '\'' +
+                '}';
+    }
 }

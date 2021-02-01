@@ -45,4 +45,14 @@ public class GPU {
     public void setGpuMemory(int gpuMemory) {
         this.gpuMemory = gpuMemory;
     }
+
+    @Override
+    public String toString() {
+        return "GPU{" +
+                "name='" + name + '\'' +
+                ", gpuManufacturer='" + gpuManufacturer + '\'' +
+                ", gpuController='" + gpuController + '\'' +
+                ", gpuMemory=" + gpuMemory +
+                '}';
+    }
 }
