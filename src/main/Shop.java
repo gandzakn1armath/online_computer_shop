@@ -3,19 +3,27 @@ package main;
 import database.LocalData;
 import models.Computer;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Shop {
     public static void main(String[] args) {
+        main();
+    }
+
+    public static void main() {
         Scanner scanner = new Scanner(System.in);
         printSections();
         int section = scanner.nextInt();
         switch (section) {
             case 1:
                 computers();
+                break;
             case 2:
             case 3:
-                break;
+            default:
+                main();
+
 
         }
     }
@@ -25,7 +33,7 @@ public class Shop {
                 "============   Բաժիններ  ============" + "\n" +
                 "1. Համակարգիչներ" + "\n" +
                 "2․ Զամբյուղ" + "\n" +
-                "1. Հետադարձ կապ" + "\n" +
+                "3. Հետադարձ կապ" + "\n" +
                 " Ընտրեք բաժինը (Օր․՝ 1 + Enter)" + "\n" +
                 "============   Բաժիններ  ============" + "\n");
     }
@@ -57,38 +65,54 @@ public class Shop {
     }
 
     public static void asus() {
-        for (Computer asus : LocalData.getAsus()) {
-            System.out.println(asus.toString());
+        ArrayList<Computer> asus = LocalData.getAsus();
+        for (int i = 0; i < asus.size(); i++) {
+            System.out.println(i + 1 + "." + asus.get(i).toString() + "\n");
         }
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        if (number > asus.size()) {
+            System.out.println("Մուտքագրել մինչև " + asus.size() + "-ը\n");
+            asus();
+        } else {
+            System.out.println(asus.get(number).printAll());
+        }
+
+
     }
 
     public static void lenovo() {
-        for (Computer lenovo : LocalData.getLenovo()) {
-            System.out.println(lenovo.toString());
+        ArrayList<Computer> lenovo = LocalData.getLenovo();
+        for (int i = 0; i < lenovo.size(); i++) {
+            System.out.println(i + 1 + "." + lenovo.get(i).toString() + "\n");
         }
     }
 
     public static void hp() {
-        for (Computer hp : LocalData.getHp()) {
-            System.out.println(hp.toString());
+        ArrayList<Computer> hp = LocalData.getHp();
+        for (int i = 0; i < hp.size(); i++) {
+            System.out.println(i + 1 + "." + hp.get(i).toString() + "\n");
         }
     }
 
     public static void acer() {
-        for (Computer acer : LocalData.getAcer()) {
-            System.out.println(acer.toString());
+        ArrayList<Computer> acer = LocalData.getAcer();
+        for (int i = 0; i < acer.size(); i++) {
+            System.out.println(i + 1 + "." + acer.get(i).toString() + "\n");
         }
     }
 
     public static void apple() {
-        for (Computer apple : LocalData.getApple()) {
-            System.out.println(apple.toString());
+        ArrayList<Computer> apple = LocalData.getApple();
+        for (int i = 0; i < apple.size(); i++) {
+            System.out.println(i + 1 + "." + apple.get(i).toString() + "\n");
         }
     }
 
     public static void dell() {
-        for (Computer dell : LocalData.getDell()) {
-            System.out.println(dell.toString());
+        ArrayList<Computer> dell = LocalData.getDell();
+        for (int i = 0; i < dell.size(); i++) {
+            System.out.println(i + 1 + "." + dell.get(i).toString() + "\n");
         }
     }
 

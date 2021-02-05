@@ -44,13 +44,29 @@ public class Computer {
 
     @Override
     public String toString() {
-        return "Computer{" +
-                "brand=" + brand.getName() +
-                ", processor=" + processor.getName() +
-                ", ram=" + ram.getRamSize() +
-                ", memory=" + memory.getMemorySpace() +
-                ", display=" + display.toString() +
-                ", videoCard=" + videoCard.getName() +
-                '}';
+        return brand.getName() +
+                        ", " + processor.getName() +
+                        ", " + ram.getRamSize() +
+                        ",\n " + memory.getMemorySpace() +
+                        ", " + display.toString() +
+                        ",\n " + videoCard.getName();
+    }
+
+    public String printAll() {
+        return "Brand - " + brand.getName() +
+                "\nCPU - " + processor.getName() +
+                "\nCPU Cores - " + processor.getCpuCoreCount() +
+                "\nCPU Maximum Frequency - " + processor.getCpuMaximumFrequency() +
+                "\nRAM Size " + ram.getRamSize() +
+                "\nRam Type " + ram.getRamType() +
+                "\nRam Frequency " + ram.getRamFrequency() +
+                "\nMemory Name " + memory.getName() +
+                "\nMemory Space " + memory.getMemorySpace() +
+                "\nMemory Type " + memory.getMemoryType() +
+                "\nDisplay Diagonal/Resolution " + display.getResolution()+"/"+display.getResolution() +
+                "\nVideoCard Name " + videoCard.getName() +
+                "\nVideoCard Manufacturer " + videoCard.getGpuManufacturer() +
+                "\nVideoCard Controller " + videoCard.getGpuController() +
+                "\nVideoCard Memory " + videoCard.getGpuMemory();
     }
 }

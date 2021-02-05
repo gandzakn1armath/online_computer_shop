@@ -39,10 +39,8 @@ public class Display {
 
     @Override
     public String toString() {
-        return "Display{" +
-                "type=" + type +
-                ", diagonal=" + diagonal +
-                ", resolution='" + resolution + '\'' +
-                '}';
+        return type +
+                "," + diagonal +
+                "," + resolution;
     }
 }
