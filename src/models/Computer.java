@@ -18,6 +18,30 @@ public class Computer {
         this.videoCard = videoCard;
     }
 
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public CPU getProcessor() {
+        return processor;
+    }
+
+    public RAM getRam() {
+        return ram;
+    }
+
+    public Memory getMemory() {
+        return memory;
+    }
+
+    public Display getDisplay() {
+        return display;
+    }
+
+    public GPU getVideoCard() {
+        return videoCard;
+    }
+
     public void setBrand(Brand brand) {
         this.brand = brand;
     }
@@ -45,11 +69,11 @@ public class Computer {
     @Override
     public String toString() {
         return brand.getName() +
-                        ", " + processor.getName() +
-                        ", " + ram.getRamSize() +
-                        ",\n " + memory.getMemorySpace() +
-                        ", " + display.toString() +
-                        ",\n " + videoCard.getName();
+                ", " + processor.getName() +
+                ", " + ram.getRamSize() +
+                ",\n " + memory.getMemorySpace() +
+                ", " + display.toString() +
+                ",\n " + videoCard.getName();
     }
 
     public String printAll() {
@@ -57,16 +81,16 @@ public class Computer {
                 "\nCPU - " + processor.getName() +
                 "\nCPU Cores - " + processor.getCpuCoreCount() +
                 "\nCPU Maximum Frequency - " + processor.getCpuMaximumFrequency() +
-                "\nRAM Size " + ram.getRamSize() +
-                "\nRam Type " + ram.getRamType() +
-                "\nRam Frequency " + ram.getRamFrequency() +
-                "\nMemory Name " + memory.getName() +
-                "\nMemory Space " + memory.getMemorySpace() +
-                "\nMemory Type " + memory.getMemoryType() +
-                "\nDisplay Diagonal/Resolution " + display.getResolution()+"/"+display.getResolution() +
-                "\nVideoCard Name " + videoCard.getName() +
-                "\nVideoCard Manufacturer " + videoCard.getGpuManufacturer() +
-                "\nVideoCard Controller " + videoCard.getGpuController() +
-                "\nVideoCard Memory " + videoCard.getGpuMemory();
+                "\nRAM Size - " + ram.getRamSize() +
+                "\nRam Type - " + ram.getRamType() +
+                "\nRam Frequency - " + ram.getRamFrequency() +
+                "\nMemory Name - " + memory.getName() +
+                "\nMemory Space - " + memory.getMemorySpace() +
+                "\nMemory Type - " + memory.getMemoryType() +
+                "\nDisplay Diagonal/Resolution - " + display.getResolution() + "/" + display.getResolution() +
+                "\nVideoCard Name - " + videoCard.getName() +
+                "\nVideoCard Manufacturer - " + videoCard.getGpuManufacturer() +
+                "\nVideoCard Controller - " + videoCard.getGpuController() +
+                "\nVideoCard Memory - " + videoCard.getGpuMemory();
     }
 }
