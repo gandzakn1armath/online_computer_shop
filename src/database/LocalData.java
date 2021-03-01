@@ -67,29 +67,29 @@ public class LocalData {
     public static ArrayList<Computer> getComputers() {
         ArrayList<Computer> computers = new ArrayList<>();
         computers.add(new Computer(getBrandData().get(0), getCPUs().get(2), getRAMs().get(2),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(2)));
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(2),150000));
         computers.add(new Computer(getBrandData().get(0), getCPUs().get(1), getRAMs().get(1),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(0)));
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(0),260000));
         computers.add(new Computer(getBrandData().get(1), getCPUs().get(2), getRAMs().get(2),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(2)));
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(2),370000));
         computers.add(new Computer(getBrandData().get(1), getCPUs().get(1), getRAMs().get(1),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(0)));
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(0),450000));
         computers.add(new Computer(getBrandData().get(2), getCPUs().get(2), getRAMs().get(2),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(2)));
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(2),530000));
         computers.add(new Computer(getBrandData().get(2), getCPUs().get(1), getRAMs().get(1),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(0)));
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(0),499999));
         computers.add(new Computer(getBrandData().get(3), getCPUs().get(2), getRAMs().get(2),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(2)));
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(2),415000));
         computers.add(new Computer(getBrandData().get(3), getCPUs().get(1), getRAMs().get(1),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(0)));
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(0),345000));
         computers.add(new Computer(getBrandData().get(4), getCPUs().get(2), getRAMs().get(2),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(2)));
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(2),245000));
         computers.add(new Computer(getBrandData().get(4), getCPUs().get(1), getRAMs().get(1),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(0)));
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(0),360000));
         computers.add(new Computer(getBrandData().get(5), getCPUs().get(2), getRAMs().get(2),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(2)));
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(2),140000));
         computers.add(new Computer(getBrandData().get(5), getCPUs().get(1), getRAMs().get(1),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(0)));
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(0),485777));
         return computers;
     }
 }

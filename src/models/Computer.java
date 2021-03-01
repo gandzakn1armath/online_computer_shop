@@ -8,14 +8,16 @@ public class Computer {
     private Memory memory;
     private Display display;
     private GPU videoCard;
+    private double price;
 
-    public Computer(Brand brand, CPU processor, RAM ram, Memory memory, Display display, GPU videoCard) {
+    public Computer(Brand brand, CPU processor, RAM ram, Memory memory, Display display, GPU videoCard, double price) {
         this.brand = brand;
         this.processor = processor;
         this.ram = ram;
         this.memory = memory;
         this.display = display;
         this.videoCard = videoCard;
+        this.price = price;
     }
 
     public Brand getBrand() {
@@ -66,6 +68,14 @@ public class Computer {
         this.videoCard = videoCard;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return brand.getName() +
@@ -73,7 +83,8 @@ public class Computer {
                 ", " + ram.getRamSize() +
                 ",\n " + memory.getMemorySpace() +
                 ", " + display.toString() +
-                ",\n " + videoCard.getName();
+                ",\n " + videoCard.getName()+
+                ",\nPrice - " + price;
     }
 
     public String printAll() {
@@ -91,6 +102,7 @@ public class Computer {
                 "\nVideoCard Name - " + videoCard.getName() +
                 "\nVideoCard Manufacturer - " + videoCard.getGpuManufacturer() +
                 "\nVideoCard Controller - " + videoCard.getGpuController() +
-                "\nVideoCard Memory - " + videoCard.getGpuMemory();
+                "\nVideoCard Memory - " + videoCard.getGpuMemory()+
+                ",\n\nPrice - " + price ;
     }
 }

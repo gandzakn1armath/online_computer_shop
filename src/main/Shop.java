@@ -33,11 +33,14 @@ public class Shop {
 
     public static void cart() {
         while (true) {
+            double price = 0;
             Scanner scanner = new Scanner(System.in);
             for (int i = 0; i < carts.size(); i++) {
                 System.out.println((i + 1) + ". " + carts.get(i));
+                price = price + carts.get(i).getPrice();
             }
             System.out.println("" + "\n" +
+                    "Ընդհանուր գումար - " + price + "\n" +
                     "Ընտրել համակարգիչը \n" + "\n" +
                     "0․ Հետ գնալ" + "\n");
             int number = scanner.nextInt();
@@ -49,7 +52,7 @@ public class Shop {
         }
     }
 
-    public static void purchase(int number){
+    public static void purchase(int number) {
         number = number - 1;
         while (true) {
             System.out.println(carts.get(number).printAll());
@@ -61,11 +64,11 @@ public class Shop {
             int section = scanner.nextInt();
             if (section == 0) {
                 break;
-            } else if(section == 1){
+            } else if (section == 1) {
                 System.out.println("Գնված է \n");
                 carts.remove(number);
                 break;
-            } else if(section == 2){
+            } else if (section == 2) {
                 carts.remove(number);
                 break;
             }
