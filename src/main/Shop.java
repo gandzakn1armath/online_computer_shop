@@ -11,28 +11,42 @@ public class Shop {
     private static final ArrayList<Computer> carts = new ArrayList<>();
 
     public static void main(String[] args) {
+        System.out.println("Բարի գալուստ <<ՀԱՄԱԿԱՐԳԻՉՆԵՐԻ ԱՇԽԱՐՀ>>");
         while (true) {
             printSections();
             Scanner scanner = new Scanner(System.in);
             int section = scanner.nextInt();
             switch (section) {
                 case 1:
-                    computers();
+                    search();
                     break;
                 case 2:
-                    cart();
+                    computers();
                     break;
                 case 3:
-                    Feedback();
+                    cart();
+                    break;
+                case 4:
+                    feedback();
                     break;
                 default:
             }
         }
     }
+    public static void search(){
+        for(int i = 0; i < carts.size(); i++) {
+
+        }
+    }
+
 
     public static void cart() {
         while (true) {
-            double price = 0;
+            if (carts.size() == 0){
+                System.out.println("Զամբյուղը դատարկ է \n");
+                break;
+            }
+            int price = 0;
             Scanner scanner = new Scanner(System.in);
             for (int i = 0; i < carts.size(); i++) {
                 System.out.println((i + 1) + ". " + carts.get(i));
@@ -41,12 +55,17 @@ public class Shop {
             System.out.println("" + "\n" +
                     "Ընդհանուր գումար - " + price + "\n" +
                     "Ընտրել համակարգիչը \n" + "\n" +
-                    "0․ Հետ գնալ" + "\n");
+                    "Բոլորը գնելու համար մուտքագրել գումարի չափը" + "\n" +
+                    "0․ Հետ գնալ");
             int number = scanner.nextInt();
             if (number == 0) {
                 break;
             } else if (number > 0 && number <= carts.size()) {
                 purchase(number);
+            }else if (number == price){
+                System.out.println("Բոլոր համակարգիչները գնված են\n");
+                carts.clear();
+                break;
             }
         }
     }
@@ -99,11 +118,11 @@ public class Shop {
     }
 
     public static void printSections() {
-        System.out.println("Բարի գալուստ <<ՀԱՄԱԿԱՐԳԻՉՆԵՐԻ ԱՇԽԱՐՀ>>" + "\n" +
-                "============   Բաժիններ  ============" + "\n" +
-                "1. Համակարգիչներ" + "\n" +
-                "2․ Զամբյուղ" + "\n" +
-                "3. Հետադարձ կապ" + "\n" +
+        System.out.println("============   Բաժիններ  ============" + "\n" +
+                "1. Որոնում" + "\n" +
+                "2. Համակարգիչներ" + "\n" +
+                "3․ Զամբյուղ" + "\n" +
+                "4. Հետադարձ կապ" + "\n" +
                 " Ընտրեք բաժինը (Օր․՝ 1 + Enter)" + "\n" +
                 "=====================================" + "\n");
     }
@@ -115,7 +134,7 @@ public class Shop {
                 "0․ Հետ գնալ" + "\n");
     }
 
-    public static void Feedback() {
+    public static void feedback() {
         while (true) {
             Scanner scanner = new Scanner(System.in);
             PrintFeedBackText();
@@ -198,8 +217,6 @@ public class Shop {
         }
 
     }
-
-
 }
 
 
