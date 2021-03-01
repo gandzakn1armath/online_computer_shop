@@ -35,13 +35,38 @@ public class Shop {
         while (true) {
             Scanner scanner = new Scanner(System.in);
             for (int i = 0; i < carts.size(); i++) {
-                System.out.println(carts.get(i));
+                System.out.println((i + 1) + ". " + carts.get(i));
             }
             System.out.println("" + "\n" +
-                    "0․ Հետ գնալ" + "\n" +
-                    "1. Ձևակերպել" + "\n");
+                    "Ընտրել համակարգիչը \n" + "\n" +
+                    "0․ Հետ գնալ" + "\n");
             int number = scanner.nextInt();
-            if (number == 0){
+            if (number == 0) {
+                break;
+            } else if (number > 0 && number <= carts.size()) {
+                purchase(number);
+            }
+        }
+    }
+
+    public static void purchase(int number){
+        number = number - 1;
+        while (true) {
+            System.out.println(carts.get(number).printAll());
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("" + "\n" +
+                    "1. Ձևակերպել " + "\n" +
+                    "2. Ջնջել զամբյուղից" + "\n" +
+                    "0․ Հետ գնալ" + "\n");
+            int section = scanner.nextInt();
+            if (section == 0) {
+                break;
+            } else if(section == 1){
+                System.out.println("Գնված է \n");
+                carts.remove(number);
+                break;
+            } else if(section == 2){
+                carts.remove(number);
                 break;
             }
         }
