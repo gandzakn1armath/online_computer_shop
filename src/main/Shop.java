@@ -26,7 +26,6 @@ public class Shop {
                     Feedback();
                     break;
                 default:
-
             }
         }
     }
