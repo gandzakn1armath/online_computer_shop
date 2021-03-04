@@ -6,9 +6,9 @@ import enums.MemoryType;
 public class Memory {
     private String name;
     private MemoryType memoryType;
-    private double memorySpace;
+    private int memorySpace;
 
-    public Memory(String name, MemoryType memoryType, double memorySpace) {
+    public Memory(String name, MemoryType memoryType, int memorySpace) {
         this.name = name;
         this.memoryType = memoryType;
         this.memorySpace = memorySpace;
@@ -31,7 +31,7 @@ public class Memory {
     }
 
     public String getMemorySpace() {
-        if (memorySpace == 1.0) {
+        if (memorySpace == 1) {
             return memorySpace + "tb";
         }else{
             return memorySpace + "gb";
@@ -39,7 +39,7 @@ public class Memory {
 
     }
 
-    public void setMemorySpace(double memorySpace) {
+    public void setMemorySpace(int memorySpace) {
         this.memorySpace = memorySpace;
     }
 

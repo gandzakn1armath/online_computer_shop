@@ -1,6 +1,7 @@
 package main;
 
 import database.LocalData;
+import enums.DisplayType;
 import models.Brand;
 import models.Computer;
 
@@ -37,24 +38,42 @@ public class Shop {
     }
 
     public static void search() {
-        printTitle("Search");
-        Scanner scanner = new Scanner(System.in);
-        String search = scanner.nextLine().toLowerCase();
-        int count = 0;
-        ArrayList<Computer> computers = LocalData.getComputers();
-        String brand = null;
-        for (int i = 0; i < computers.size(); i++) {
-            brand = computers.get(i).getBrand().getName().toLowerCase();
-            if (brand.equals(search) || (brand.charAt(0) == search.charAt(0) &&
-                    brand.charAt(1) == search.charAt(1))) {
-                count = count + 1;
-                System.out.println(count + ". " + computers.get(i));
+        while (true) {
+            printTitle("Search");
+            Scanner scanner = new Scanner(System.in);
+            String search = scanner.nextLine();
+            int count = 0;
+            ArrayList<Computer> computers = LocalData.getComputers();
+
+            for (int i = 0; i < computers.size(); i++) {
+                if (checkSearch(computers.get(i),search)){
+                    count = count + 1;
+                    System.out.println(count + ". " + computers.get(i));
+                }
             }
+
         }
-
-
     }
-
+    public static boolean checkSearch(Computer computer,String search){
+        String  brand = computer.getBrand().getName();
+        String model = computer.getModel();
+        String CPU = computer.getProcessor().getName();
+        String RAM = computer.getRam().getRamSize();
+        String memory = computer.getMemory().getMemorySpace();
+        String displayType = computer.getDisplay().getType().toString();
+        String displayDiagonal = computer.getDisplay().getDiagonal();
+        String displayResolution = computer.getDisplay().getResolution();
+        String GPU = computer.getVideoCard().getName();
+        return brand.substring(0, search.length()).equalsIgnoreCase(search) ||
+                model.substring(0, search.length()).equalsIgnoreCase(search) ||
+               CPU.substring(0, search.length()).equalsIgnoreCase(search) ||
+                RAM.substring(0, search.length()).equalsIgnoreCase(search) ||
+                memory.substring(0, search.length()).equalsIgnoreCase(search) ||
+                displayType.substring(0, search.length()).equalsIgnoreCase(search) ||
+                displayDiagonal.substring(0,search.length()).equalsIgnoreCase(search)||
+                displayResolution.substring(0,search.length()).equalsIgnoreCase(search)||
+                GPU.substring(0,search.length()).equalsIgnoreCase(search);
+    }
 
     public static void cart() {
         while (true) {
@@ -125,11 +144,13 @@ public class Shop {
         }
         System.out.println("");
     }
-    public static void printPurchaseText(){
+
+    public static void printPurchaseText() {
         System.out.println("" + "\n" +
                 "1. Formulate " + "\n" +
                 "2. Delete from cart");
     }
+
     public static void PrintFeedBackText() {
         printTitle("Feedback");
         System.out.println(
@@ -153,7 +174,8 @@ public class Shop {
                 "\nDo you want to buy it?" + "\n" +
                         "1. Add to cart");
     }
-    public static void printBack(){
+
+    public static void printBack() {
         System.out.println("\nChoose section (1 + Enter)" + "\n" +
                 "0. Back" + "\n"
                 + "==========================================");
