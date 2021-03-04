@@ -30,8 +30,13 @@ public class Memory {
         this.memoryType = memoryType;
     }
 
-    public double getMemorySpace() {
-        return memorySpace;
+    public String getMemorySpace() {
+        if (memorySpace == 1.0) {
+            return memorySpace + "tb";
+        }else{
+            return memorySpace + "gb";
+        }
+
     }
 
     public void setMemorySpace(double memorySpace) {

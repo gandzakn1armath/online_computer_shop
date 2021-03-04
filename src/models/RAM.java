@@ -14,8 +14,8 @@ public class RAM {
     }
 
 
-    public int getRamSize() {
-        return ramSize;
+    public String getRamSize() {
+        return ramSize + "gb";
     }
 
     public void setRamSize(int ramSize) {

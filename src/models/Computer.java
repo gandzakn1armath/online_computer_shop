@@ -3,6 +3,7 @@ package models;
 
 public class Computer {
     private Brand brand;
+    private String model;
     private CPU processor;
     private RAM ram;
     private Memory memory;
@@ -10,8 +11,10 @@ public class Computer {
     private GPU videoCard;
     private int price;
 
-    public Computer(Brand brand, CPU processor, RAM ram, Memory memory, Display display, GPU videoCard, int price) {
+    public Computer(Brand brand, String model, CPU processor, RAM ram, Memory memory, Display display,
+                    GPU videoCard, int price) {
         this.brand = brand;
+        this.model = model;
         this.processor = processor;
         this.ram = ram;
         this.memory = memory;
@@ -76,19 +79,29 @@ public class Computer {
         this.price = price;
     }
 
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
     @Override
     public String toString() {
         return brand.getName() +
+                ", " + model +
                 ", " + processor.getName() +
                 ", " + ram.getRamSize() +
                 ",\n   " + memory.getMemorySpace() +
                 ", " + display.toString() +
-                ",\n   " + videoCard.getName()+
+                ",\n   " + videoCard.getName() +
                 ",\nPrice - " + price;
     }
 
     public String printAll() {
         return "Brand - " + brand.getName() +
+                "\nModel - " + model +
                 "\nCPU - " + processor.getName() +
                 "\nCPU Cores - " + processor.getCpuCoreCount() +
                 "\nCPU Maximum Frequency - " + processor.getCpuMaximumFrequency() +
@@ -102,7 +115,7 @@ public class Computer {
                 "\nVideoCard Name - " + videoCard.getName() +
                 "\nVideoCard Manufacturer - " + videoCard.getGpuManufacturer() +
                 "\nVideoCard Controller - " + videoCard.getGpuController() +
-                "\nVideoCard Memory - " + videoCard.getGpuMemory()+
-                ",\n\nPrice - " + price ;
+                "\nVideoCard Memory - " + videoCard.getGpuMemory() +
+                ",\n\nPrice - " + price;
     }
 }

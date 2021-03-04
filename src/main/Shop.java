@@ -11,11 +11,13 @@ public class Shop {
     private static final ArrayList<Computer> carts = new ArrayList<>();
 
     public static void main(String[] args) {
-        System.out.println("Բարի գալուստ <<ՀԱՄԱԿԱՐԳԻՉՆԵՐԻ ԱՇԽԱՐՀ>>");
+        printTitle("Welcome to Computers World");
         while (true) {
             printSections();
             Scanner scanner = new Scanner(System.in);
             int section = scanner.nextInt();
+            if (section == 0)
+                break;
             switch (section) {
                 case 1:
                     search();
@@ -33,19 +35,34 @@ public class Shop {
             }
         }
     }
-    public static void search(){
-        for(int i = 0; i < carts.size(); i++) {
 
+    public static void search() {
+        printTitle("Search");
+        Scanner scanner = new Scanner(System.in);
+        String search = scanner.nextLine().toLowerCase();
+        int count = 0;
+        ArrayList<Computer> computers = LocalData.getComputers();
+        String brand = null;
+        for (int i = 0; i < computers.size(); i++) {
+            brand = computers.get(i).getBrand().getName().toLowerCase();
+            if (brand.equals(search) || (brand.charAt(0) == search.charAt(0) &&
+                    brand.charAt(1) == search.charAt(1))) {
+                count = count + 1;
+                System.out.println(count + ". " + computers.get(i));
+            }
         }
+
+
     }
 
 
     public static void cart() {
         while (true) {
-            if (carts.size() == 0){
-                System.out.println("Զամբյուղը դատարկ է \n");
+            if (carts.size() == 0) {
+                System.out.println("Cart is empty \n");
                 break;
             }
+            printTitle("Cart");
             int price = 0;
             Scanner scanner = new Scanner(System.in);
             for (int i = 0; i < carts.size(); i++) {
@@ -53,17 +70,17 @@ public class Shop {
                 price = price + carts.get(i).getPrice();
             }
             System.out.println("" + "\n" +
-                    "Ընդհանուր գումար - " + price + "\n" +
-                    "Ընտրել համակարգիչը \n" + "\n" +
-                    "Բոլորը գնելու համար մուտքագրել գումարի չափը" + "\n" +
-                    "0․ Հետ գնալ");
+                    "Total - " + price + "\n" +
+                    "\nChoose computer (1 + Enter)" + "\n" +
+                    "Enter the amount to buy them all (300000 + Enter)" + "\n" +
+                    "0․ Back" + "\n==========================================");
             int number = scanner.nextInt();
             if (number == 0) {
                 break;
             } else if (number > 0 && number <= carts.size()) {
                 purchase(number);
-            }else if (number == price){
-                System.out.println("Բոլոր համակարգիչները գնված են\n");
+            } else if (number == price) {
+                System.out.println("=====  All computers is bought  =====\n");
                 carts.clear();
                 break;
             }
@@ -73,20 +90,22 @@ public class Shop {
     public static void purchase(int number) {
         number = number - 1;
         while (true) {
+            printTitle(carts.get(number).getBrand().getName() + " " + carts.get(number).getModel());
             System.out.println(carts.get(number).printAll());
             Scanner scanner = new Scanner(System.in);
-            System.out.println("" + "\n" +
-                    "1. Ձևակերպել " + "\n" +
-                    "2. Ջնջել զամբյուղից" + "\n" +
-                    "0․ Հետ գնալ" + "\n");
+            printPurchaseText();
+            printBack();
             int section = scanner.nextInt();
             if (section == 0) {
                 break;
             } else if (section == 1) {
-                System.out.println("Գնված է \n");
+                System.out.println(carts.get(number).getBrand().getName() + " " +
+                        carts.get(number).getModel() + " is bought");
                 carts.remove(number);
                 break;
             } else if (section == 2) {
+                System.out.println(carts.get(number).getBrand().getName() + " " +
+                        carts.get(number).getModel() + " is deleted");
                 carts.remove(number);
                 break;
             }
@@ -106,38 +125,45 @@ public class Shop {
         }
         System.out.println("");
     }
-
+    public static void printPurchaseText(){
+        System.out.println("" + "\n" +
+                "1. Formulate " + "\n" +
+                "2. Delete from cart");
+    }
     public static void PrintFeedBackText() {
-        System.out.println("Բարի գալուստ <<ՀԱՄԱԿԱՐԳԻՉՆԵՐԻ ԱՇԽԱՐՀ>>" + "\n" +
-                "============   Հետադարձ կապ  ============" + "\n" +
-                "Հեռախոսահամար 077-543-059" + "\n" +
-                "Էլ․հասցե spartak.virabyan@yandex.ru" + "\n" + "\n" +
-                "0․ Հետ գնալ" + "\n" +
-                " Ընտրեք բաժինը (Օր․՝ 1 + Enter)" + "\n" +
-                "=====================================" + "\n");
+        printTitle("Feedback");
+        System.out.println(
+                "PhoneNumber 077-543-059" + "\n" +
+                        "E-mail spartak.virabyan@yandex.ru");
     }
 
     public static void printSections() {
-        System.out.println("============   Բաժիններ  ============" + "\n" +
-                "1. Որոնում" + "\n" +
-                "2. Համակարգիչներ" + "\n" +
-                "3․ Զամբյուղ" + "\n" +
-                "4. Հետադարձ կապ" + "\n" +
-                " Ընտրեք բաժինը (Օր․՝ 1 + Enter)" + "\n" +
+        printTitle("Sections");
+        System.out.println("1. Search" + "\n" +
+                "2. Computers" + "\n" +
+                "3․ Cart" + "\n" +
+                "4. Feedback" + "\n" +
+                "0. Exit" + "\n" +
+                "\nChoose section (1 + Enter)" + "\n" +
                 "=====================================" + "\n");
     }
 
     public static void printCartSections() {
-        System.out.println("" + "\n" +
-                "Ցանկանում ե՞ք գնել" + "\n" +
-                "1. Ավելացնել Զամբյուղ" + "\n" +
-                "0․ Հետ գնալ" + "\n");
+        System.out.println(
+                "\nDo you want to buy it?" + "\n" +
+                        "1. Add to cart");
+    }
+    public static void printBack(){
+        System.out.println("\nChoose section (1 + Enter)" + "\n" +
+                "0. Back" + "\n"
+                + "==========================================");
     }
 
     public static void feedback() {
         while (true) {
             Scanner scanner = new Scanner(System.in);
             PrintFeedBackText();
+            printBack();
             int section = scanner.nextInt();
             if (section == 0) {
                 break;
@@ -148,13 +174,12 @@ public class Shop {
     public static void computers() {
         while (true) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("============   Համակարգիչներ  ============");
+            printTitle("Computers");
             ArrayList<Brand> brands = LocalData.getBrandData();
             for (int i = 0; i < brands.size(); i++) {
                 System.out.println((i + 1) + ". " + brands.get(i).getName());
             }
-            System.out.println("0. Հետ գնալ");
-            System.out.println("==========================================");
+            printBack();
             int section = scanner.nextInt();
 
 
@@ -183,7 +208,7 @@ public class Shop {
                     System.out.println(count + ". " + computer.toString());
                 }
             }
-            System.out.println("0. Հետ");
+            printBack();
             Scanner scanner = new Scanner(System.in);
             int number = scanner.nextInt();
             if (number == 0) {
@@ -192,10 +217,11 @@ public class Shop {
             number = number - 1;
             for (int i = 0; i < comps.size(); i++) {
                 if (number == i) {
+                    printTitle(comps.get(number).getBrand().getName() + " " + comps.get(number).getModel());
                     System.out.println(comps.get(number).printAll());
                     addCompToCart(comps.get(number));
                 } else if (number > comps.size()) {
-                    System.out.println("Մուտքագրել մինչև " + comps.size() + " թիվը");
+                    System.out.println("Enter before " + comps.size());
                 }
             }
         }
@@ -204,12 +230,13 @@ public class Shop {
     public static void addCompToCart(Computer computer) {
         while (true) {
             printCartSections();
+            printBack();
             Scanner scanner = new Scanner(System.in);
             int number = scanner.nextInt();
             if (number == 1) {
                 carts.add(computer);
                 System.out.println(carts.toString());
-                System.out.println("Ավելացված է");
+                System.out.println(computer.getBrand().getName() + " " + computer.getModel() + " is added to cart");
                 break;
             } else if (number == 0) {
                 break;

@@ -8,6 +8,7 @@ import models.*;
 import java.util.ArrayList;
 
 public class LocalData {
+
     public static ArrayList<Brand> getBrandData() {
         ArrayList<Brand> brands = new ArrayList<>();
         brands.add(new Brand("Asus"));
@@ -66,30 +67,30 @@ public class LocalData {
 
     public static ArrayList<Computer> getComputers() {
         ArrayList<Computer> computers = new ArrayList<>();
-        computers.add(new Computer(getBrandData().get(0), getCPUs().get(2), getRAMs().get(2),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(2),150000));
-        computers.add(new Computer(getBrandData().get(0), getCPUs().get(1), getRAMs().get(1),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(0),260000));
-        computers.add(new Computer(getBrandData().get(1), getCPUs().get(2), getRAMs().get(2),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(2),370000));
-        computers.add(new Computer(getBrandData().get(1), getCPUs().get(1), getRAMs().get(1),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(0),450000));
-        computers.add(new Computer(getBrandData().get(2), getCPUs().get(2), getRAMs().get(2),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(2),530000));
-        computers.add(new Computer(getBrandData().get(2), getCPUs().get(1), getRAMs().get(1),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(0),499999));
-        computers.add(new Computer(getBrandData().get(3), getCPUs().get(2), getRAMs().get(2),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(2),415000));
-        computers.add(new Computer(getBrandData().get(3), getCPUs().get(1), getRAMs().get(1),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(0),345000));
-        computers.add(new Computer(getBrandData().get(4), getCPUs().get(2), getRAMs().get(2),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(2),245000));
-        computers.add(new Computer(getBrandData().get(4), getCPUs().get(1), getRAMs().get(1),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(0),360000));
-        computers.add(new Computer(getBrandData().get(5), getCPUs().get(2), getRAMs().get(2),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(2),140000));
-        computers.add(new Computer(getBrandData().get(5), getCPUs().get(1), getRAMs().get(1),
-                getMemories().get(3), getDisplays().get(3), getGPUs().get(0),485777));
+        computers.add(new Computer(getBrandData().get(0), "Tuf", getCPUs().get(2), getRAMs().get(2),
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(2), 150000));
+        computers.add(new Computer(getBrandData().get(0), "Vivobook", getCPUs().get(1), getRAMs().get(1),
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(0), 260000));
+        computers.add(new Computer(getBrandData().get(1), "Macbook Pro", getCPUs().get(2), getRAMs().get(2),
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(2), 450000));
+        computers.add(new Computer(getBrandData().get(1), "Macbook Air", getCPUs().get(0), getRAMs().get(1),
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(0), 370000));
+        computers.add(new Computer(getBrandData().get(2), "IdeaBook T900", getCPUs().get(3), getRAMs().get(3),
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(2), 530000));
+        computers.add(new Computer(getBrandData().get(2), "IdeaBook T700", getCPUs().get(2), getRAMs().get(2),
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(0), 499999));
+        computers.add(new Computer(getBrandData().get(3), "Nitro 5", getCPUs().get(2), getRAMs().get(2),
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(2), 415000));
+        computers.add(new Computer(getBrandData().get(3), "Aspire", getCPUs().get(1), getRAMs().get(1),
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(0), 345000));
+        computers.add(new Computer(getBrandData().get(4), "XPS", getCPUs().get(2), getRAMs().get(2),
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(2), 245000));
+        computers.add(new Computer(getBrandData().get(4), "Inspiron", getCPUs().get(1), getRAMs().get(1),
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(0), 360000));
+        computers.add(new Computer(getBrandData().get(5), "Pavilion", getCPUs().get(2), getRAMs().get(2),
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(2), 140000));
+        computers.add(new Computer(getBrandData().get(5), "Envy", getCPUs().get(1), getRAMs().get(1),
+                getMemories().get(3), getDisplays().get(3), getGPUs().get(0), 485777));
         return computers;
     }
 }

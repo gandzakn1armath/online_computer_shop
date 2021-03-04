@@ -21,8 +21,8 @@ public class Display {
         this.type = type;
     }
 
-    public double getDiagonal() {
-        return diagonal;
+    public String getDiagonal() {
+        return diagonal+"in";
     }
 
     public void setDiagonal(double diagonal) {
