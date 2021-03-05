@@ -40,22 +40,41 @@ public class Shop {
     public static void search() {
         while (true) {
             printTitle("Search");
+            System.out.println("Enter the computer detail with which you would like to buy a computer"+
+                    "\nChoose computer detail (Intel I5 + Enter)" + "\n");
             Scanner scanner = new Scanner(System.in);
             String search = scanner.nextLine();
             int count = 0;
             ArrayList<Computer> computers = LocalData.getComputers();
-
+            ArrayList<Computer> comps = new ArrayList<>();
+            if (search.equals("0"))
+                break;
             for (int i = 0; i < computers.size(); i++) {
-                if (checkSearch(computers.get(i),search)){
+                if (checkSearch(computers.get(i), search)) {
                     count = count + 1;
                     System.out.println(count + ". " + computers.get(i));
+                    comps.add(computers.get(i));
                 }
             }
 
+            int number = scanner.nextInt();
+            number = number - 1;
+            for (int j = 0; j < comps.size(); j++) {
+                if (number == j) {
+                    printTitle(comps.get(number).getBrand().getName() + " " + comps.get(number).getModel());
+                    System.out.println(comps.get(number).printAll());
+                    addCompToCart(comps.get(number));
+                } else if (number > comps.size()) {
+                    System.out.println("=====  Enter before " + comps.size() + "  =====");
+                }else if (number == 0) {
+                    break;
+                }
+            }
         }
     }
-    public static boolean checkSearch(Computer computer,String search){
-        String  brand = computer.getBrand().getName();
+
+    public static boolean checkSearch(Computer computer, String search) {
+        String brand = computer.getBrand().getName();
         String model = computer.getModel();
         String CPU = computer.getProcessor().getName();
         String RAM = computer.getRam().getRamSize();
@@ -64,15 +83,16 @@ public class Shop {
         String displayDiagonal = computer.getDisplay().getDiagonal();
         String displayResolution = computer.getDisplay().getResolution();
         String GPU = computer.getVideoCard().getName();
-        return brand.substring(0, search.length()).equalsIgnoreCase(search) ||
-                model.substring(0, search.length()).equalsIgnoreCase(search) ||
-               CPU.substring(0, search.length()).equalsIgnoreCase(search) ||
-                RAM.substring(0, search.length()).equalsIgnoreCase(search) ||
-                memory.substring(0, search.length()).equalsIgnoreCase(search) ||
-                displayType.substring(0, search.length()).equalsIgnoreCase(search) ||
-                displayDiagonal.substring(0,search.length()).equalsIgnoreCase(search)||
-                displayResolution.substring(0,search.length()).equalsIgnoreCase(search)||
-                GPU.substring(0,search.length()).equalsIgnoreCase(search);
+        return brand.substring(0, Math.min(search.length(), brand.length())).equalsIgnoreCase(search) ||
+                model.substring(0, Math.min(search.length(), model.length())).equalsIgnoreCase(search) ||
+                CPU.substring(0, Math.min(search.length(), CPU.length())).equalsIgnoreCase(search) ||
+                RAM.substring(0, Math.min(search.length(), RAM.length())).equalsIgnoreCase(search) ||
+                memory.substring(0, Math.min(search.length(), memory.length())).equalsIgnoreCase(search) ||
+                displayType.substring(0, Math.min(search.length(), displayType.length())).equalsIgnoreCase(search) ||
+                displayDiagonal.substring(0, Math.min(search.length(), displayDiagonal.length())).equalsIgnoreCase(search) ||
+                displayResolution.substring(0, Math.min(search.length(), displayResolution.length())).equalsIgnoreCase(search) ||
+                GPU.substring(0, Math.min(search.length(), GPU.length())).equalsIgnoreCase(search);
+
     }
 
     public static void cart() {
@@ -257,7 +277,6 @@ public class Shop {
             int number = scanner.nextInt();
             if (number == 1) {
                 carts.add(computer);
-                System.out.println(carts.toString());
                 System.out.println(computer.getBrand().getName() + " " + computer.getModel() + " is added to cart");
                 break;
             } else if (number == 0) {
