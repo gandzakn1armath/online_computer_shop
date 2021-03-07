@@ -40,7 +40,8 @@ public class Shop {
         while (true) {
             printTitle("Search");
             System.out.println("Enter the computer detail with which you would like to buy a computer"+
-                    "\nChoose computer detail (Intel I5 + Enter)" + "\n");
+                    "\nChoose computer detail (Intel I5 + Enter)" + "\n" +
+                    "0․ Back" + "\n==========================================");
             Scanner scanner = new Scanner(System.in);
             String search = scanner.nextLine();
             ArrayList<Computer> computers = LocalData.getComputers();
@@ -52,9 +53,11 @@ public class Shop {
                 if (checkSearchKeyword(computers.get(i), search)) {
                     comps.add(computers.get(i));
                     System.out.println(comps.size() + ". " + computers.get(i));
+                }else{
+                    System.out.println("No search results found");
+                    search();
                 }
             }
-            printBack();
             int number = (scanner.nextInt()-1);
             for (int j = 0; j < comps.size(); j++) {
                 if (number == j) {
@@ -108,8 +111,8 @@ public class Shop {
             System.out.println("" + "\n" +
                     "Total - " + price + "\n" +
                     "\nChoose computer (1 + Enter)" + "\n" +
-                    "Enter the amount to buy them all (300000 + Enter)" + "\n" +
-                    "0․ Back" + "\n==========================================");
+                    "Enter the amount to buy them all (300000 + Enter)" + "\n"
+                    +"0․ Back" + "\n==========================================");
             int number = scanner.nextInt();
             if (number == 0) {
                 break;
