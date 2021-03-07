@@ -1,7 +1,6 @@
 package main;
 
 import database.LocalData;
-import enums.DisplayType;
 import models.Brand;
 import models.Computer;
 
@@ -44,21 +43,19 @@ public class Shop {
                     "\nChoose computer detail (Intel I5 + Enter)" + "\n");
             Scanner scanner = new Scanner(System.in);
             String search = scanner.nextLine();
-            int count = 0;
             ArrayList<Computer> computers = LocalData.getComputers();
             ArrayList<Computer> comps = new ArrayList<>();
             if (search.equals("0"))
                 break;
+            
             for (int i = 0; i < computers.size(); i++) {
-                if (checkSearch(computers.get(i), search)) {
-                    count = count + 1;
-                    System.out.println(count + ". " + computers.get(i));
+                if (checkSearchKeyword(computers.get(i), search)) {
                     comps.add(computers.get(i));
+                    System.out.println(comps.size() + ". " + computers.get(i));
                 }
             }
-
-            int number = scanner.nextInt();
-            number = number - 1;
+            printBack();
+            int number = (scanner.nextInt()-1);
             for (int j = 0; j < comps.size(); j++) {
                 if (number == j) {
                     printTitle(comps.get(number).getBrand().getName() + " " + comps.get(number).getModel());
@@ -73,7 +70,7 @@ public class Shop {
         }
     }
 
-    public static boolean checkSearch(Computer computer, String search) {
+    public static boolean checkSearchKeyword(Computer computer, String search) {
         String brand = computer.getBrand().getName();
         String model = computer.getModel();
         String CPU = computer.getProcessor().getName();
@@ -173,9 +170,10 @@ public class Shop {
 
     public static void PrintFeedBackText() {
         printTitle("Feedback");
-        System.out.println(
-                "PhoneNumber 077-543-059" + "\n" +
-                        "E-mail spartak.virabyan@yandex.ru");
+        System.out.println("PhoneNumber 077-543-059" + "\n" +
+                        "            098-113-003" + "\n" +
+                        "E-mail spartak.virabyan@yandex.ru\n"+
+                "       frunze-minasyan@gmail.com" + "\n");
     }
 
     public static void printSections() {

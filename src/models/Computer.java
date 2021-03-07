@@ -96,7 +96,7 @@ public class Computer {
                 ",\n   " + memory.getMemorySpace() +
                 ", " + display.toString() +
                 ",\n   " + videoCard.getName() +
-                ",\nPrice - " + price;
+                ",\n   Price - " + price+"AMD\n";
     }
 
     public String printAll() {
