@@ -48,7 +48,7 @@ public class Shop {
             ArrayList<Computer> comps = new ArrayList<>();
             if (search.equals("0"))
                 break;
-            
+
             for (int i = 0; i < computers.size(); i++) {
                 if (checkSearchKeyword(computers.get(i), search)) {
                     comps.add(computers.get(i));
@@ -151,7 +151,6 @@ public class Shop {
         }
     }
 
-
     public static void printTitle(String text) {
         String title = "============   " + text.toUpperCase() + "  ============";
         for (int i = 0; i < title.length(); i++) {
@@ -174,8 +173,8 @@ public class Shop {
     public static void PrintFeedBackText() {
         printTitle("Feedback");
         System.out.println("PhoneNumber 077-543-059" + "\n" +
-                        "            098-113-003" + "\n" +
-                        "E-mail spartak.virabyan@yandex.ru\n"+
+                "            098-113-003" + "\n" +
+                "E-mail spartak.virabyan@yandex.ru\n"+
                 "       frunze-minasyan@gmail.com" + "\n");
     }
 
@@ -236,7 +235,6 @@ public class Shop {
         }
     }
 
-
     public static void getComputers(Brand brand) {
         while (true) {
             int count = 0;
@@ -284,11 +282,6 @@ public class Shop {
                 break;
             }
         }
-
     }
 }
-
-
-
-
 
